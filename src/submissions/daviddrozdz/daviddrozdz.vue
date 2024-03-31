@@ -223,7 +223,7 @@ onBeforeMount( () => {
       4. Set the map size that you want to analyze from the first dropdown list.
       <br>
       <br>
-      5. Choose the type of amenity you are interested in from the second dropdown list.
+      5. Choose the type of amenity you are interested in from the second dropdown list (based on the <a href="https://wiki.openstreetmap.org/wiki/Map_features" target="_blank" class="osm-link">OSM keys</a>).
       <br>
       <br>
       6. For better display, choose the radius of the area you are interested in, and if you want to see 3D building geometry inside or outside it. Of course, you can move it however you want!
