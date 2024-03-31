@@ -15,7 +15,6 @@ async function runCompute(data, path) {
   store.computing = true;
   let def = await loadGH(path);
   res = await compute(def, data);
-
   doc = createDoc(res);
 
   //downlod 3dm model, optionally
@@ -122,12 +121,14 @@ function createDoc(res) {
 }
 
 // download button handler
-function download(doc) {
-  let buffer = doc.toByteArray();
+function download(fileName) {
+  const options = new rhino.File3dmWriteOptions();
+  options.version = 7;
+  let buffer = doc.toByteArrayOptions(options);
   let blob = new Blob([buffer], { type: "application/octect-stream" });
   let link = document.createElement("a");
   link.href = window.URL.createObjectURL(blob);
-  link.download = "boolean.3dm";
+  link.download = fileName+'.3dm';
   link.click();
 }
 
@@ -190,4 +191,4 @@ function base64ByteArray(bytes) {
   return base64
 }
 
-export { loadRhino, runCompute, base64ByteArray };
+export { loadRhino, runCompute, base64ByteArray, download };
