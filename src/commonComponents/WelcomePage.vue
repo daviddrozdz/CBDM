@@ -1,16 +1,22 @@
 <script setup>
+
 import { ref } from "vue";
 // import imageSrc from '@/assets/datamgmt-commits.png'
 
 var submissions = [
   { name: "Student A", visible: ref(false) },
   { name: "Student B", visible: ref(false) },
-  { name: "Student C", visible: ref(false) }
+  { name: "Student C", visible: ref(false) },
+  { name: "Student D", visible: ref(false) },
+  { name: "Dawid Drozdz", visible: ref(false) },
 
 ];
 </script>
 
+
+
 <template>
+
    <div class="other-stuff">
     <h4 class="home-page-titles">Master in Advanced Computation for Architecture & Design </h4>
     <h2 class="home-page-titles main">Cloud-based Data Management</h2>
@@ -33,9 +39,13 @@ var submissions = [
    <div class="image-container">
     <!-- <img class="scrollable-image" :src="imageSrc" alt="Gitflow" /> -->
   </div>
+
 </template>
 
+
+
 <style scoped>
+
 .image-container {
   max-width: 50%;
   height: auto;
@@ -43,35 +53,34 @@ var submissions = [
   background-color: #f0f0f0;
   display: block;
 margin-left: auto;
-
 }
 
 .other-stuff  {
   margin: 5px 1% 20px 15%;
   display: block;
   max-width: 500px;
-  
 }
-
 
 .scrollable-image {
   width: 100%;
   height: auto;
 }
+
 .home-page-titles{
     margin:0px;
     text-align: left;
     padding-left:0px;
     padding-bottom: 1px;
-    
 }
 
 .names {
     margin-top: 2px;
+    color: black;
 }
-.student-list
-{
+
+.student-list {
    list-style-type: none; 
+   color: black;
    margin-left:0px;
    padding-left:0px;
 }
@@ -93,4 +102,5 @@ margin-left: auto;
 .image-container::-webkit-scrollbar-thumb:hover {
   background-color: #f2dd1c;
 }
+
 </style>
