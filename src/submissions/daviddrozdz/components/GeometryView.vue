@@ -245,8 +245,10 @@ async function compute() {
     // add object graph from rhino model to three.js scene
     object.traverse((child) => {
 
+      // print all visible elements in console
       // console.log(child)
 
+      // if child is line add color
       if (child.isLine) {
 
         // console.log(child)
