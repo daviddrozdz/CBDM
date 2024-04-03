@@ -421,7 +421,7 @@ button:hover, .customUpload:hover {
   height: 100%;
   width: 100%;
   min-width: 200px;
-  min-height: 900px;
+  min-height: 1000px;
   position:inherit;
 }
 

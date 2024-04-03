@@ -53,6 +53,15 @@ const dropdownOptions2 = [
   { label: "Education", value: 5 }
 ];
 
+let dropdownName3 = ref("Metadata") //must match the Input name in your GH definition!
+let dropdownIndex3 = ref(0) //default slider value
+
+const dropdownOptions3 = [
+  { label: "Show none", value: 0 },
+  { label: "Show within radius", value: 1 },
+  { label: "Show all", value: 2 },
+];
+
 let toggleName = ref("3D inside") //must match the Input name in your GH definition!
 let toggleValue = ref(true) //default slider value
 
@@ -105,6 +114,10 @@ function updateValue(newValue, parameterName) {
 
   else if (parameterName === dropdownName2.value) {
     dropdownIndex2.value = newValue
+  }
+
+  else if (parameterName === dropdownName3.value) {
+    dropdownIndex3.value = newValue
   }
 
   else if (parameterName === toggleName.value) {
@@ -181,6 +194,7 @@ const computeData = computed(() => {
     [inputName2.value]: Number(inputValue2.value),
     [dropdownName.value]: Number(dropdownIndex.value),
     [dropdownName2.value]: Number(dropdownIndex2.value),
+    [dropdownName3.value]: Number(dropdownIndex3.value),
     [toggleName.value]: Boolean(toggleValue.value),
     [sliderName.value]: Number(sliderValue.value),
     [inputPoint.value]: inputPointValue.value,
@@ -294,6 +308,13 @@ onBeforeMount( () => {
     @update="updateValue">
     </SliderInput>
 
+    <DropdownSelector 
+    :title="dropdownName3" 
+    :options="dropdownOptions3" 
+    :val="dropdownIndex3" 
+    @update="updateValue">
+    </DropdownSelector>
+
     <ToggleInput 
     :title="toggleName" 
     :val="true" 
@@ -321,26 +342,17 @@ onBeforeMount( () => {
       Amenities per km2: <span v-if="metadata[2]">{{ metadata[2].value }}</span><span v-else>...</span>
     </p>
 
-
-
-
-
-    <p> 
-      Amenities data: <span v-if="metadata[2]">{{ metadata[2].value }}</span><span v-else>...</span>
-    </p>
-
-
-    <div v-if="metadata && metadata.length > 0" class="results">
+    <!-- Optional - show error message -->
+    <!-- <div v-if="metadata && metadata.length > 0" class="results">
       <template v-if="findError">
         <p>ERROR:</p>
         <p>{{ findError }}</p>
       </template>
       <template v-else>
         <p>RESULT:</p>
-        <p>In  meed by evaporation.</p>
+        <p>Data calculated correctly</p>
       </template>
-    </div>
-
+    </div> -->
 
   </div>
 
