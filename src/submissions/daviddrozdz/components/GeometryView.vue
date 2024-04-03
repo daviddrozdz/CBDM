@@ -92,6 +92,7 @@ function init() {
       borderColor: {r:255, g:0, b:0, a:1.0}, 
       backgroundColor: {r:255, g:100, b:100, a:0.8} 
     } );
+    
 	spritey.position.set(0,0,35);
 	scene.add( spritey );
 
@@ -196,7 +197,7 @@ function makeTextSprite( message, parameters )
 function visualizeGumballPoint() {
   let inputPoint = props.data.inputPoint
   for (let i = 0; i < inputPoint.length; i++) {
-    
+
     //viz in three
     const icoGeo = new THREE.IcosahedronGeometry(1)
     const icoMat = new THREE.MeshNormalMaterial()

@@ -311,7 +311,7 @@ onBeforeMount( () => {
     </p>
 
     <p> 
-      Amenities per km2: <span v-if="metadata[1]">{{ metadata[2].value }}</span><span v-else>...</span>
+      Amenities per km2: <span v-if="metadata[2]">{{ metadata[2].value }}</span><span v-else>...</span>
     </p>
 
   </div>
