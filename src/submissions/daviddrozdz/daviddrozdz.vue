@@ -20,10 +20,11 @@ import GeometryView from "./components/GeometryView.vue"
 import InputField from "./components/InputField.vue"
 import Loading from "./components/Loading.vue"
 
+// Define what the component emits
 const emits = defineEmits(['updateMetadata', 'gumballMove']) 
 
 // Import Grasshopper definition for assets
-import def from './assets/EvaluateYourCity4.gh' 
+import def from './assets/EvaluateYourCity2.gh' 
 
 let inputName = ref("Location (N/S)") //must match the Input name in your GH definition!
 let inputValue = ref(52.23955) //default slider value
@@ -38,7 +39,6 @@ const dropdownOptions = [
   { label: "Small", value: 0 },
   { label: "Medium", value: 1 },
   { label: "Large", value: 2 },
-  { label: "Super large", value: 3 }
 ];
 
 let dropdownName2 = ref("Amenity") //must match the Input name in your GH definition!
@@ -57,7 +57,7 @@ let toggleName = ref("3D inside") //must match the Input name in your GH definit
 let toggleValue = ref(true) //default slider value
 
 let sliderName = ref("Data radius") //must match the Input name in your GH definition!
-let sliderValue = ref(200) //default slider value
+let sliderValue = ref(150) //default slider value
 
 let inputPoint = ref("inputPoint")
 let inputPointValue = ref("")
@@ -279,7 +279,7 @@ onBeforeMount( () => {
     :min="100" 
     :max="500" 
     :step="1" 
-    :val="200" 
+    :val="150" 
     @update="updateValue">
     </SliderInput>
 
