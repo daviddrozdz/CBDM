@@ -24,7 +24,7 @@ import Loading from "./components/Loading.vue"
 const emits = defineEmits(['updateMetadata', 'gumballMove']) 
 
 // Import Grasshopper definition for assets
-import def from './assets/EvaluateYourCity7.gh' 
+import def from './assets/EvaluateYourCity2.gh' 
 
 let inputName = ref("Location (N/S)") //must match the Input name in your GH definition!
 let inputValue = ref(52.23955) //default slider value
