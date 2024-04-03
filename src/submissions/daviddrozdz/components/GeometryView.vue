@@ -86,7 +86,7 @@ function init() {
   // add fun shape
   animate()
 
-  // add text sprite
+  // add text sprite centerpoint
 	var spritey = makeTextSprite( "Map centerpoint", 
 		{ fontsize: 30, 
       borderColor: {r:255, g:0, b:0, a:1.0}, 
@@ -94,6 +94,27 @@ function init() {
     } );
 	spritey.position.set(0,0,35);
 	scene.add( spritey );
+
+  // add text sprites amenities
+  var locationX = [10, 20, 30];
+  var locationY = [5, 15, 25];
+  var locationZ = [35, 35, 35];
+  var Text = ["Text 1", "Text 2", "Text 3"];
+
+  // Loop through the arrays and create sprites
+  for (var i = 0; i < locationX.length; i++) {
+    var sprite = makeTextSprite(Text[i], 
+        { 
+            fontsize: 30, 
+            borderColor: {r:255, g:0, b:0, a:1.0}, 
+            backgroundColor: {r:255, g:100, b:100, a:0.8} 
+        }
+    );
+
+    sprite.position.set(locationX[i], locationY[i], locationZ[i]);
+    scene.add(sprite);
+    
+}
 
 }
 
