@@ -196,6 +196,7 @@ function makeTextSprite( message, parameters )
 function visualizeGumballPoint() {
   let inputPoint = props.data.inputPoint
   for (let i = 0; i < inputPoint.length; i++) {
+    
     //viz in three
     const icoGeo = new THREE.IcosahedronGeometry(1)
     const icoMat = new THREE.MeshNormalMaterial()
