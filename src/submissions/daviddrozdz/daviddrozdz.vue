@@ -63,7 +63,8 @@ let inputPoint = ref("inputPoint")
 let inputPointValue = ref("")
 createInitialPoint()
 
-///.............................................
+//.............................................
+
 const path = def //path to your GH definition
 let data = ref({})
 let metadata = ref([])
@@ -117,6 +118,12 @@ function updateValue(newValue, parameterName) {
   // console.log(parameterName + " : " + newValue)
 
 }
+
+// Show error message when error happens
+const findError = computed(() => {
+  const errorItem = metadata.value.find(item => item.name === 'Error');
+  return errorItem ? errorItem.value : null;
+});
 
 // function to receive metadata
 // function receiveMetadata(newValue) { //this function is called when the compute is done
@@ -314,6 +321,27 @@ onBeforeMount( () => {
       Amenities per km2: <span v-if="metadata[2]">{{ metadata[2].value }}</span><span v-else>...</span>
     </p>
 
+
+
+
+
+    <p> 
+      Amenities data: <span v-if="metadata[2]">{{ metadata[2].value }}</span><span v-else>...</span>
+    </p>
+
+
+    <div v-if="metadata && metadata.length > 0" class="results">
+      <template v-if="findError">
+        <p>ERROR:</p>
+        <p>{{ findError }}</p>
+      </template>
+      <template v-else>
+        <p>RESULT:</p>
+        <p>In  meed by evaporation.</p>
+      </template>
+    </div>
+
+
   </div>
 
   <!-- OVERLAY / DISPLAY -->
@@ -343,6 +371,22 @@ onBeforeMount( () => {
 <!--  -->
 
 <style scoped>
+
+.results 
+{
+  position: absolute; 
+  bottom: 20px; 
+  right: 20px; 
+  margin-top: 0; 
+  background-color: gainsboro;
+  border-radius: 5px;
+  padding: 10px;
+  width: auto; 
+  max-width: 300px; 
+  z-index: 10; 
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
 
 .logo {
   width: 100%;
