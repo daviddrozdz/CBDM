@@ -119,43 +119,47 @@ function updateValue(newValue, parameterName) {
 }
 
 // function to receive metadata
-function receiveMetadata(newValue) { //this function is called when the compute is done
-  console.log(newValue)
-  metadata.value = newValue
-}
-
-// Version with splitted list - backup
 // function receiveMetadata(newValue) { //this function is called when the compute is done
 //   console.log(newValue)
-//   let metadata = []
-//   let locationX = []
-//   let locationY = []
-//   let locationZ = []
-//   newValue.forEach(element => {
-//     //Check if element is metadata --> add to metadata array
-//     if (element.name =='AmenitiesMetadata'){
-//       metadata.push(element)
-//     }
-//     //Check if element is location ==> add to location array
-//     else if (element.name == 'AmenitiesPointX'){
-//       locationX.push(element)
-//     }
-//     //Check if element is location ==> add to location array
-//     else if (element.name == 'AmenitiesPointY'){
-//       locationY.push(element)
-//     }
-//      //Check if element is location ==> add to location array
-//      else if (element.name == 'AmenitiesPointZ'){
-//       locationZ.push(element)
-//     }
-//   });
-//   metadata.forEach((data, index) => {
-//     //add data at location[index]
-    
-//   })
-  
 //   metadata.value = newValue
 // }
+
+// function to receive metadata v2
+function receiveMetadata(newValue) { //this function is called when the compute is done
+  console.log(newValue)
+
+  let AmenitiesMeta = []
+  let locationsX = []
+  let locationsY = []
+  let locationsZ = []
+
+  newValue.forEach(element => {
+    //Check if element is metadata --> add to metadata array
+    if (element.name =='AmenitiesM'){
+      AmenitiesMeta.push(element)
+    }
+    //Check if element is location ==> add to location array
+    else if (element.name == 'AmenitiesX'){
+      locationsX.push(element)
+    }
+    //Check if element is location ==> add to location array
+    else if (element.name == 'AmenitiesY'){
+      locationsY.push(element)
+    }
+     //Check if element is location ==> add to location array
+     else if (element.name == 'AmenitiesZ'){
+      locationsZ.push(element)
+    }
+  });
+  
+  console.log(AmenitiesMeta)
+  console.log(locationsX)
+  console.log(locationsY)
+  console.log(locationsZ)
+
+  metadata.value = newValue
+
+}
 
 
 // function to run Compute
